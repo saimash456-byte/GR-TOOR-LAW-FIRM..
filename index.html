@@ -9,24 +9,29 @@
     <style>
         :root {
             --gold: #ffdf00;
-            --gold-dark: #d4af37;
+            --gold-deep: #d4af37;
             --bg: #050505;
-            --glow-shadow: 0 0 20px rgba(255, 223, 0, 0.6);
+            --glow: 0 0 25px rgba(255, 223, 0, 0.7);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
 
-        /* ULTRA SHINE ANIMATION */
-        @keyframes ultra-shine {
-            0% { text-shadow: 0 0 10px #ffdf00; filter: brightness(1); }
-            50% { text-shadow: 0 0 30px #ffdf00, 0 0 50px #d4af37; filter: brightness(1.5); }
-            100% { text-shadow: 0 0 10px #ffdf00; filter: brightness(1); }
+        /* GOLDEN SHIMMER EFFECT */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
         }
 
-        .shine-fast { animation: ultra-shine 1.5s infinite ease-in-out; color: var(--gold); font-family: 'Cinzel', serif; }
-        
-        .gold-card-border { border: 1.5px solid var(--gold-dark); box-shadow: var(--glow-shadow); }
+        .gold-shimmer {
+            background: linear-gradient(90deg, #d4af37, #ffdf00, #fff, #ffdf00, #d4af37);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
 
         header {
             position: fixed; width: 100%; top: 0; padding: 20px 8%;
@@ -46,12 +51,12 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
         .card {
-            background: #0f0f0f; border: 1px solid rgba(255, 223, 0, 0.2);
+            background: #0f0f0f; border: 1.5px solid var(--gold-deep);
             padding: 40px 25px; border-radius: 15px; transition: 0.5s; text-align: center;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
         }
-        .card:hover { border-color: var(--gold); transform: translateY(-12px); box-shadow: 0 0 40px rgba(255, 223, 0, 0.3); }
+        .card:hover { border-color: var(--gold); transform: translateY(-12px); box-shadow: var(--glow); }
 
-        /* Social & Action Icons */
         .icon-btn {
             display: inline-flex; align-items: center; justify-content: center;
             width: 45px; height: 45px; margin: 8px;
@@ -60,7 +65,7 @@
         }
         .icon-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold); transform: scale(1.2); }
 
-        .bank-tag { border: 1px solid var(--gold); padding: 5px 12px; font-size: 13px; margin: 5px; color: var(--gold); font-weight: bold; }
+        .contact-info { color: var(--gold); font-size: 15px; margin: 5px 0; display: block; text-decoration: none; }
 
         footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #333; }
     </style>
@@ -68,62 +73,46 @@
 <body>
 
 <header>
-    <h1 class="shine-fast" style="font-size: 26px;">G.R TOOR LAW FIRM</h1>
+    <h1 class="gold-shimmer" style="font-size: 26px;">G.R TOOR LAW FIRM</h1>
     <a href="https://wa.me/923457461644" class="icon-btn"><i class="fab fa-whatsapp"></i></a>
 </header>
 
 <section class="hero">
-    <h1 class="shine-fast" style="font-size: clamp(35px, 8vw, 80px);">G.R TOOR LAW FIRM</h1>
-    <p style="letter-spacing: 6px; color: #ddd; font-weight: 300; margin-top: 15px;">EXCELLENCE | STRATEGY | RESULTS</p>
+    <h1 class="gold-shimmer" style="font-size: clamp(35px, 8vw, 80px);">G.R TOOR LAW FIRM</h1>
+    <p style="letter-spacing: 6px; color: #ddd; margin-top: 15px;">EXPERIENCE | INTEGRITY | SUCCESS</p>
 </section>
 
-<section id="expertise">
-    <h2 class="section-title shine-fast">Our Expertise</h2>
-    <div class="grid">
-        <div class="card">
-            <h3 class="shine-fast">Banking & Finance</h3>
-            <p style="margin-bottom: 20px;">Official Legal Advisor for recovery and corporate litigation:</p>
-            <span class="bank-tag">NRSP BANK</span><span class="bank-tag">LOLC BANK</span><span class="bank-tag">U BANK</span>
-        </div>
-        <div class="card">
-            <h3 class="shine-fast">Land & Property</h3>
-            <p>Specialized in Revenue Laws, Possession disputes, Stay Orders, and Inheritance (Wirasat) distribution.</p>
-        </div>
-        <div class="card">
-            <h3 class="shine-fast">Criminal & Civil</h3>
-            <p>Powerful representation in High Court trials, Bail matters, and complex Civil disputes.</p>
-        </div>
-    </div>
-</section>
-
-<section id="senior" style="background: #080808;">
-    <h2 class="section-title shine-fast">Senior Counsel</h2>
+<section id="senior">
+    <h2 class="section-title gold-shimmer">Senior Counsel</h2>
     <div class="grid" style="max-width: 1000px; margin: auto;">
-        <div class="card gold-card-border">
-            <img src="https://graph.facebook.com/babartoor/picture?type=large" style="width:130px; border-radius:50%; border:3px solid var(--gold); margin-bottom:20px;">
-            <h2 class="shine-fast">Basharat Rasool Babar</h2>
-            <p style="font-weight: 700; color: #fff;">Advocate High Court</p>
-            <p style="font-size: 13px; color: #aaa; margin: 10px 0;">Official Advisor: NRSP, LOLC, U Bank</p>
+        <div class="card" style="border: 2px solid var(--gold);">
+            <img src="https://graph.facebook.com/babartoor/picture?type=large" style="width:140px; border-radius:50%; border:3px solid var(--gold); margin-bottom:20px;">
+            <h2 class="gold-shimmer">Basharat Rasool Babar</h2>
+            <p style="font-weight: 700; color: #fff; margin-bottom: 10px;">Advocate High Court</p>
+            
+            <a href="tel:03457461644" class="contact-info"><i class="fas fa-phone"></i> 0345-7461644</a>
+            <a href="mailto:babartoor@gmail.com" class="contact-info"><i class="fas fa-envelope"></i> babartoor@gmail.com</a>
+            
             <div style="margin-top: 20px;">
                 <a href="https://www.facebook.com/babartoor" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/babartoor" class="icon-btn"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:babartoor@gmail.com" class="icon-btn"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/923457461644" class="icon-btn"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
-        <div class="card gold-card-border">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" style="width:130px; border-radius:50%; border:3px solid var(--gold); margin-bottom:20px;">
-            <h2 class="shine-fast">Peerzada Hafizullah</h2>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" style="width:140px; border-radius:50%; border:3px solid var(--gold); margin-bottom:20px;">
+            <h2 class="gold-shimmer">Peerzada Hafizullah</h2>
             <p style="font-weight: 700; color: #fff;">Advocate High Court</p>
-            <p style="color: var(--gold); margin-top: 15px; font-weight: 600;">📞 0300-4323533</p>
+            <p class="contact-info" style="margin-top: 15px;">📞 0300-4323533</p>
         </div>
     </div>
 </section>
 
-<section id="associates">
-    <h2 class="section-title shine-fast">Legal Associates</h2>
+<section id="associates" style="background: #080808;">
+    <h2 class="section-title gold-shimmer">Legal Associates</h2>
     <div class="grid">
         <div class="card">
-            <h3 class="shine-fast">Saim Babar Toor</h3>
+            <h3 class="gold-shimmer">Saim Babar Toor</h3>
             <p>Advocate</p>
             <div style="margin-top: 20px;">
                 <a href="https://www.facebook.com/saim.babartoor.1" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
@@ -133,53 +122,49 @@
             </div>
         </div>
         <div class="card">
-            <h3 class="shine-fast">Noman Manzoor Toor</h3>
+            <h3 class="gold-shimmer">Noman Manzoor Toor</h3>
             <p>Advocate</p>
             <div style="margin-top: 15px;">
                 <a href="https://www.facebook.com/noman.toor.3" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
         <div class="card">
-            <h3 class="shine-fast">Shahzaib Asad</h3>
+            <h3 class="gold-shimmer">Shahzaib Asad</h3>
             <p>Advocate</p>
             <div style="margin-top: 15px;">
                 <a href="https://www.facebook.com/profile.php?id=100073336593062" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
         <div class="card">
-            <h3 class="shine-fast">M. Yaseen Toor</h3>
+            <h3 class="gold-shimmer">M. Yaseen Toor</h3>
             <p>Advocate</p>
-            <p style="color: var(--gold); margin-top: 15px;">📞 0345-7888078</p>
+            <p class="contact-info" style="margin-top: 15px;">📞 0345-7888078</p>
         </div>
     </div>
 </section>
 
-<section style="background: #0a0a0a;">
-    <h2 class="section-title shine-fast">Chambers Management</h2>
-    <div class="card gold-card-border" style="max-width: 500px; margin: auto;">
-        <h2 class="shine-fast">Azhar Iqbal</h2>
+<section>
+    <h2 class="section-title gold-shimmer">Chambers Management</h2>
+    <div class="card" style="max-width: 500px; margin: auto; border: 1px solid var(--gold);">
+        <h2 class="gold-shimmer">Azhar Iqbal</h2>
         <p>Head of Management / Clerk</p>
         <div style="margin-top: 20px;">
             <a href="tel:03417853653" class="icon-btn"><i class="fas fa-phone"></i></a>
             <a href="https://wa.me/923417853653" class="icon-btn"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p class="shine-fast" style="margin-top: 10px; font-size: 20px;">0341-7853653</p>
+        <p class="gold-shimmer" style="margin-top: 10px; font-size: 20px;">0341-7853653</p>
     </div>
 </section>
 
 <section id="contact">
-    <h2 class="section-title shine-fast">Our Location</h2>
-    <div style="text-align: center; margin-bottom: 30px; color: #ccc;">
-        <p>13 Quaid-e-Azam Block, Near Thana City, Jaranwala</p>
-        <p>Direct: 0345-7461644 | babartoor@gmail.com</p>
-    </div>
-    <div style="border: 2px solid var(--gold); border-radius: 15px; overflow: hidden; box-shadow: var(--glow-shadow);">
-        <iframe width="100%" height="450" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.9082!2d73.4184!3d31.3414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDIwJzI5LjAiTiA3M8KwMjUnMDYuMiJF!5e0!3m2!1sen!2spk!4v1700000000000"></iframe>
+    <h2 class="section-title gold-shimmer">Location</h2>
+    <div style="border: 2px solid var(--gold); border-radius: 15px; overflow: hidden; box-shadow: var(--glow);">
+        <iframe width="100%" height="450" frameborder="0" src="http://googleusercontent.com/maps.google.com/6"></iframe>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 G.R TOOR LAW FIRM | EXCELLENCE IN JARANWALA & HIGH COURT</p>
+    <p>© 2026 G.R TOOR LAW FIRM | JARANWALA</p>
 </footer>
 
 </body>
