@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G.R TOOR LAW FIRM | Master Corporate Portal</title>
+    <title>G.R TOOR LAW FIRM | Official</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #d4af37;
-            --gold-bright: #ffefba;
+            --gold: #ffdf00;
+            --gold-dark: #d4af37;
             --bg: #050505;
-            --card-bg: #0f0f0f;
-            --glow: 0 0 20px rgba(212, 175, 55, 0.6);
+            --glow-shadow: 0 0 20px rgba(255, 223, 0, 0.6);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
 
-        @keyframes gold-glow {
-            0%, 100% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); border-color: rgba(212, 175, 55, 0.2); }
-            50% { text-shadow: 0 0 25px rgba(212, 175, 55, 1); border-color: var(--gold); }
+        /* ULTRA SHINE ANIMATION */
+        @keyframes ultra-shine {
+            0% { text-shadow: 0 0 10px #ffdf00; filter: brightness(1); }
+            50% { text-shadow: 0 0 30px #ffdf00, 0 0 50px #d4af37; filter: brightness(1.5); }
+            100% { text-shadow: 0 0 10px #ffdf00; filter: brightness(1); }
         }
 
-        .shine { color: var(--gold); animation: gold-glow 2s infinite; font-family: 'Cinzel', serif; }
+        .shine-fast { animation: ultra-shine 1.5s infinite ease-in-out; color: var(--gold); font-family: 'Cinzel', serif; }
+        
+        .gold-card-border { border: 1.5px solid var(--gold-dark); box-shadow: var(--glow-shadow); }
 
         header {
-            position: fixed; width: 100%; top: 0; padding: 15px 8%;
+            position: fixed; width: 100%; top: 0; padding: 20px 8%;
             background: rgba(0,0,0,0.95); border-bottom: 2px solid var(--gold);
             z-index: 1000; display: flex; justify-content: space-between; align-items: center;
         }
@@ -37,158 +40,146 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
 
-        .hero h1 { font-size: clamp(30px, 8vw, 75px); margin-bottom: 10px; letter-spacing: 5px; }
+        section { padding: 100px 8%; }
+        .section-title { text-align: center; font-size: 42px; margin-bottom: 60px; border-bottom: 2px solid var(--gold); display: table; margin: 0 auto 60px; padding-bottom: 15px; }
 
-        /* Stats Bar */
-        .stats-bar {
-            background: #000; padding: 40px 8%; display: flex; justify-content: space-around; 
-            flex-wrap: wrap; border-bottom: 1px solid var(--gold);
-        }
-        .stat-item { text-align: center; margin: 10px; }
-        .stat-item h2 { font-size: 40px; color: var(--gold); }
-
-        section { padding: 80px 8%; }
-        .section-title { text-align: center; font-size: 35px; margin-bottom: 50px; border-bottom: 1px solid var(--gold); display: table; margin: 0 auto 50px; padding-bottom: 10px; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
         .card {
-            background: var(--card-bg); border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 30px; border-radius: 10px; transition: 0.4s;
+            background: #0f0f0f; border: 1px solid rgba(255, 223, 0, 0.2);
+            padding: 40px 25px; border-radius: 15px; transition: 0.5s; text-align: center;
         }
-        .card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: var(--glow); }
-        .card h3 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .card:hover { border-color: var(--gold); transform: translateY(-12px); box-shadow: 0 0 40px rgba(255, 223, 0, 0.3); }
 
+        /* Social & Action Icons */
         .icon-btn {
             display: inline-flex; align-items: center; justify-content: center;
-            width: 45px; height: 45px; margin: 5px;
-            background: rgba(212, 175, 55, 0.1); color: var(--gold);
-            text-decoration: none; border: 1px solid var(--gold); border-radius: 50%; transition: 0.3s;
+            width: 45px; height: 45px; margin: 8px;
+            background: rgba(255, 223, 0, 0.1); color: var(--gold);
+            text-decoration: none; border: 1.5px solid var(--gold); border-radius: 50%; transition: 0.4s;
         }
-        .icon-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold); }
+        .icon-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold); transform: scale(1.2); }
 
-        .bank-tag { background: #222; border: 1px solid var(--gold); padding: 5px 12px; font-size: 12px; margin-right: 5px; color: var(--gold); border-radius: 4px; }
+        .bank-tag { border: 1px solid var(--gold); padding: 5px 12px; font-size: 13px; margin: 5px; color: var(--gold); font-weight: bold; }
 
-        footer { text-align: center; padding: 40px; background: #000; border-top: 1px solid #222; color: #666; }
-
-        iframe { border: 2px solid var(--gold); border-radius: 10px; filter: invert(90%) hue-rotate(180deg); }
+        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 class="shine" style="font-size: 22px;">G.R TOOR LAW FIRM</h1>
+    <h1 class="shine-fast" style="font-size: 26px;">G.R TOOR LAW FIRM</h1>
     <a href="https://wa.me/923457461644" class="icon-btn"><i class="fab fa-whatsapp"></i></a>
 </header>
 
 <section class="hero">
-    <h1 class="shine">LEGAL EXCELLENCE</h1>
-    <p style="letter-spacing: 5px; color: #ccc;">20+ YEARS OF UNMATCHED SUCCESS</p>
-    <div style="margin-top: 40px;">
-        <a href="#contact" class="icon-btn" style="width: auto; padding: 0 25px; border-radius: 5px;">GET CONSULTATION</a>
-    </div>
+    <h1 class="shine-fast" style="font-size: clamp(35px, 8vw, 80px);">G.R TOOR LAW FIRM</h1>
+    <p style="letter-spacing: 6px; color: #ddd; font-weight: 300; margin-top: 15px;">EXCELLENCE | STRATEGY | RESULTS</p>
 </section>
 
-<div class="stats-bar">
-    <div class="stat-item"><h2>20+</h2><p>Years Practice</p></div>
-    <div class="stat-item"><h2>2000+</h2><p>Success Stories</p></div>
-    <div class="stat-item"><h2>50+</h2><p>Corporate Clients</p></div>
-    <div class="stat-item"><h2>24/7</h2><p>Expert Support</p></div>
-</div>
-
-<section id="services">
-    <h2 class="section-title shine">Professional Expertise</h2>
+<section id="expertise">
+    <h2 class="section-title shine-fast">Our Expertise</h2>
     <div class="grid">
         <div class="card">
-            <h3>Banking & Finance</h3>
-            <p>Official Advisor for recovery & litigation:</p>
-            <div style="margin-top:15px;">
-                <span class="bank-tag">NRSP BANK</span><span class="bank-tag">LOLC BANK</span><span class="bank-tag">U BANK</span>
-            </div>
+            <h3 class="shine-fast">Banking & Finance</h3>
+            <p style="margin-bottom: 20px;">Official Legal Advisor for recovery and corporate litigation:</p>
+            <span class="bank-tag">NRSP BANK</span><span class="bank-tag">LOLC BANK</span><span class="bank-tag">U BANK</span>
         </div>
         <div class="card">
-            <h3>Land & Property</h3>
-            <p>Expertise in Revenue Laws, Property Ownership disputes, Wirasat (Inheritance), and High Court Stay Orders.</p>
+            <h3 class="shine-fast">Land & Property</h3>
+            <p>Specialized in Revenue Laws, Possession disputes, Stay Orders, and Inheritance (Wirasat) distribution.</p>
         </div>
         <div class="card">
-            <h3>Criminal & Civil</h3>
-            <p>Defense in High Court trials, bails, and complex civil litigation with strategic advocacy.</p>
+            <h3 class="shine-fast">Criminal & Civil</h3>
+            <p>Powerful representation in High Court trials, Bail matters, and complex Civil disputes.</p>
         </div>
     </div>
 </section>
 
-<section id="team" style="background: #080808;">
-    <h2 class="section-title shine">Senior Leadership</h2>
-    <div class="grid" style="max-width: 900px; margin: auto;">
-        <div class="card" style="border: 2px solid var(--gold); text-align: center;">
-            <img src="https://graph.facebook.com/babartoor/picture?type=large" style="width:120px; border-radius:50%; border:3px solid var(--gold); margin-bottom:15px;">
-            <h2 class="shine">B. Rasool Babar</h2>
-            <p>Advocate High Court (Senior Advisor)</p>
-            <div style="margin-top:15px;">
+<section id="senior" style="background: #080808;">
+    <h2 class="section-title shine-fast">Senior Counsel</h2>
+    <div class="grid" style="max-width: 1000px; margin: auto;">
+        <div class="card gold-card-border">
+            <img src="https://graph.facebook.com/babartoor/picture?type=large" style="width:130px; border-radius:50%; border:3px solid var(--gold); margin-bottom:20px;">
+            <h2 class="shine-fast">Basharat Rasool Babar</h2>
+            <p style="font-weight: 700; color: #fff;">Advocate High Court</p>
+            <p style="font-size: 13px; color: #aaa; margin: 10px 0;">Official Advisor: NRSP, LOLC, U Bank</p>
+            <div style="margin-top: 20px;">
                 <a href="https://www.facebook.com/babartoor" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/babartoor" class="icon-btn"><i class="fab fa-instagram"></i></a>
                 <a href="mailto:babartoor@gmail.com" class="icon-btn"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <div class="card" style="border: 2px solid var(--gold); text-align: center;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" style="width:120px; border-radius:50%; border:3px solid var(--gold); margin-bottom:15px;">
-            <h2 class="shine">Pirzada Hafizullah</h2>
-            <p>Advocate High Court</p>
-            <p style="color:var(--gold); margin-top:10px;">📞 0300-4323533</p>
+        <div class="card gold-card-border">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" style="width:130px; border-radius:50%; border:3px solid var(--gold); margin-bottom:20px;">
+            <h2 class="shine-fast">Peerzada Hafizullah</h2>
+            <p style="font-weight: 700; color: #fff;">Advocate High Court</p>
+            <p style="color: var(--gold); margin-top: 15px; font-weight: 600;">📞 0300-4323533</p>
         </div>
     </div>
 </section>
 
-<section>
-    <h2 class="section-title shine">Legal Associates</h2>
+<section id="associates">
+    <h2 class="section-title shine-fast">Legal Associates</h2>
     <div class="grid">
-        <div class="card" style="text-align: center;">
-            <h3>Saim Babar Toor</h3>
-            <div style="margin-top:10px;">
+        <div class="card">
+            <h3 class="shine-fast">Saim Babar Toor</h3>
+            <p>Advocate</p>
+            <div style="margin-top: 20px;">
                 <a href="https://www.facebook.com/saim.babartoor.1" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/saim_kiduniya456" class="icon-btn"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@Sa_imbabarrasool654" class="icon-btn"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.tiktok.com/@saim.babar.rasool456" class="icon-btn"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
-        <div class="card" style="text-align: center;">
-            <h3>Noman Toor</h3>
-            <a href="https://www.facebook.com/noman.toor.3" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
+        <div class="card">
+            <h3 class="shine-fast">Noman Manzoor Toor</h3>
+            <p>Advocate</p>
+            <div style="margin-top: 15px;">
+                <a href="https://www.facebook.com/noman.toor.3" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
+            </div>
         </div>
-        <div class="card" style="text-align: center;">
-            <h3>Shahzaib Asad</h3>
-            <a href="https://www.facebook.com/profile.php?id=100073336593062" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
+        <div class="card">
+            <h3 class="shine-fast">Shahzaib Asad</h3>
+            <p>Advocate</p>
+            <div style="margin-top: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=100073336593062" class="icon-btn"><i class="fab fa-facebook-f"></i></a>
+            </div>
         </div>
-        <div class="card" style="text-align: center;">
-            <h3>M. Yaseen Toor</h3>
-            <p style="color:var(--gold);">0345-7888078</p>
+        <div class="card">
+            <h3 class="shine-fast">M. Yaseen Toor</h3>
+            <p>Advocate</p>
+            <p style="color: var(--gold); margin-top: 15px;">📞 0345-7888078</p>
         </div>
     </div>
 </section>
 
-<section style="background: #080808;">
-    <h2 class="section-title shine">Management</h2>
-    <div class="card" style="max-width: 500px; margin: auto; text-align: center;">
-        <h3 class="shine">Azhar Iqbal</h3>
-        <p>Head of Chambers Management</p>
-        <div style="margin-top:15px;">
+<section style="background: #0a0a0a;">
+    <h2 class="section-title shine-fast">Chambers Management</h2>
+    <div class="card gold-card-border" style="max-width: 500px; margin: auto;">
+        <h2 class="shine-fast">Azhar Iqbal</h2>
+        <p>Head of Management / Clerk</p>
+        <div style="margin-top: 20px;">
             <a href="tel:03417853653" class="icon-btn"><i class="fas fa-phone"></i></a>
             <a href="https://wa.me/923417853653" class="icon-btn"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p style="margin-top:10px; color:var(--gold);">0341-7853653</p>
+        <p class="shine-fast" style="margin-top: 10px; font-size: 20px;">0341-7853653</p>
     </div>
 </section>
 
 <section id="contact">
-    <h2 class="section-title shine">Office Location</h2>
-    <div style="text-align: center; margin-bottom: 30px;">
+    <h2 class="section-title shine-fast">Our Location</h2>
+    <div style="text-align: center; margin-bottom: 30px; color: #ccc;">
         <p>13 Quaid-e-Azam Block, Near Thana City, Jaranwala</p>
-        <p>Direct: 0345-7461644 | Gmail: babartoor@gmail.com</p>
+        <p>Direct: 0345-7461644 | babartoor@gmail.com</p>
     </div>
-    <iframe width="100%" height="400" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.023456789!2d73.416!3d31.333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDIwJzAwLjAiTiA3M8KwMjUnMDAuMCJF!5e0!3m2!1sen!2spk!4v1625000000000!5m2!1sen!2spk"></iframe>
+    <div style="border: 2px solid var(--gold); border-radius: 15px; overflow: hidden; box-shadow: var(--glow-shadow);">
+        <iframe width="100%" height="450" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.9082!2d73.4184!3d31.3414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDIwJzI5LjAiTiA3M8KwMjUnMDYuMiJF!5e0!3m2!1sen!2spk!4v1700000000000"></iframe>
+    </div>
 </section>
 
 <footer>
-    © 2026 G.R TOOR LAW FIRM | EXCELLENCE IN LEGAL PRACTICE
+    <p>© 2026 G.R TOOR LAW FIRM | EXCELLENCE IN JARANWALA & HIGH COURT</p>
 </footer>
 
 </body>
